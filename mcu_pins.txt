@@ -1,0 +1,64 @@
+PA0 - Button column 1
+PA1 - Button column 2
+PA2 - Button column 3
+PA3 - Button column 4
+PA4 - Button column 5
+PA5 - Button column 6
+PA6 - Encoder 1
+PA7 - Encoder 2
+
+PB0 - 
+PB1 - ISP SCK
+PB2 - 
+PB3 - 
+PB4 - FM_CNT (OC0)
+PB5 - Beeper (OC1A)
+PB6 - LCD backlight control (OC1B)
+PB7 - P_EN (power enable to radio) (OC2/OC1C)
+
+PC0 - LCD D0
+PC1 - LCD D1
+PC2 - LCD D2
+PC3 - LCD D3
+PC4 - LCD D4
+PC5 - LCD D5
+PC6 - LCD D6
+PC7 - LCD D7
+
+PD0 - Button backlight control
+PD1 - 
+PD2 - RX (from radio)
+PD3 - TX (to radio)
+PD4 - LCD /RD
+PD5 - LCD /WR
+PD6 - LCD RS
+PD7 - LCD /RESET
+
+PE0 - ISP MOSI
+PE1 - ISP MISO
+PE2 - 
+PE3 - 
+PE4 - 
+PE5 - 
+PE6 - IR detector
+PE7 - 
+
+PF0 - 
+PF1 - 
+PF2 - 
+PF3 - 
+PF4 - 
+PF5 - Button row C
+PF6 - Button row A
+PF7 - Button row B
+
+Button matrix:
+
+  1	2	3	4	5	6
+------------------------------------------------
+A:1	2	3	4	5	6
+B:7	8	9	0	UP	DOWN
+C:POWER	MEMORY	BAND	MENU	DISPLAY	Encoder
+
+Beeper idles low.
+

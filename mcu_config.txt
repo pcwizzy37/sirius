@@ -1,0 +1,29 @@
+Clock is XTAL at 7.3728MHz
+
+Column 1-6 scan at 40Hz, ~26us each.
+
+LCD backlight PWM and beeper are at 3.597kHz.
+  -> CLK / 2048
+
+Fuse Low Byte      = 0xaf
+Fuse High Byte     = 0xc8
+Fuse Extended Byte = 0xff
+Calibration Byte   = 0x9f  --  Read Only
+Lock Bits          = 0xd4
+    BLB12 -> 0
+    BLB11 -> 1
+    BLB02 -> 0
+    BLB01 -> 1
+    LB2 -> 0
+    LB1 -> 0
+
+Differences between default and current fuse bits:
+Fuse high byte:
+	JTAG disabled
+	CKOPT = 0
+	BOOTRST = 0
+Fuse low byte:
+	Brown-out detector enabled
+	CKSEL = 1111 (external crystal)
+Startup time is chosen for ceramic resonator, slowly rising power.
+

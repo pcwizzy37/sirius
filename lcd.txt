@@ -1,0 +1,80 @@
+128x64
+Appears to use a Samsung S6B1713 controller/driver chip-on-glass.
+
+Reset:
+
+LCD /RESET goes high immediately after MCU reset.
+LCD /RESET remains high for ~11ms.
+LCD /RESET goes low for ~5.5ms, then goes high.
+
+Init:
+
+PD6 is low for all init but normally high - C/D
+PD5 strobes init - /WR?
+PD4 is high for all init - /RD?
+
+PD6 goes low before PD5 pulses low (setup for entire sequence).
+Dx changes during low cycle of PD5 (setup for rising edge).
+
+7 pulses:
+D0 - 0 1 0 1 0 1 0
+D1 - 0 1 0 0 1 1 1
+D2 - 0 1 1 0 1 1 1
+D3 - 0 1 0 0 0 1 0
+
+D4 - 0 0 0 0 0 0 0
+D5 - 0 1 1 1 1 1 1
+D6 - 1 0 0 0 0 0 0
+D7 - 0 1 1 1 1 0 0
+
+Init commands:
+40 af a4 a1 a6 2f 26
+
+PD5 is low for 420ns (3 clks) with a period of 2us (~15 clks).
+
+After init: 2 3 4
+4 between lines
+
+Before first line:
+D0 - 1 1  0 0 0  0 0 0 0  0
+D1 - 0 0  1 0 0  0 0 0 0  0
+D2 - 0 1  0 0 0  0 0 0 0  0
+D3 - 0 0  0 1 0  0 0 0 0  0
+
+D4 - 0 0  0 0 0  1 0 1 0  0
+D5 - 0 1  1 0 0  1 0 0 0  0
+D6 - 0 0  0 1 1  0 1 0 0  0
+D7 - 1 0  1 1 0  1 0 0 0  0
+
+CD - 0 0  0 0 0  0 0 0 0  1
+
+81 25  a2 c8 40  b0 40 10 00
+
+Before second line (starting at 453.2us):
+D0 - 1 0 0 0  0
+D1 - 0 0 0 0  0
+D2 - 0 0 0 0  0
+D3 - 0 0 0 0  0
+
+D4 - 1 0 1 0  0
+D5 - 1 0 0 0  0
+D6 - 0 1 0 0  0
+D7 - 1 0 0 0  0
+
+CD - 0 0 0 0  1
+
+b1 40 10 00
+
+Before possible read:
+D0 - 0  1 1 0
+D1 - 1  0 0 0
+D2 - 0  0 0 0
+D3 - 0  0 0 0
+
+D4 - 1  1 0 0
+D5 - 1  0 0 1
+D6 - 0  0 0 1
+D7 - 1  0 0 1
+
+b2 11 01 e0
+
