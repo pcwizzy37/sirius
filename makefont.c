@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 	}
 
 	fprintf(out, "#include <avr/pgmspace.h>\n\n");
-	fprintf(out, "prog_uchar font_data[] =\n{\n");
+	fprintf(out, "const unsigned char font_data[] PROGMEM =\n{\n");
 
 	for (i = 0, x = 0; x < 128 * 8; i++, x++)
 	{

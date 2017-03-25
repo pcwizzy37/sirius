@@ -10,9 +10,9 @@ volatile char encoder_count;
 
 static uint8_t scan_column, all_rows, enc_state;
 
-static prog_uchar btn_row_a[] = {'1', '2', '3', '4', '5', '6'};
-static prog_uchar btn_row_b[] = {'7', '8', '9', '0', BTN_CAT_LEFT, BTN_CAT_RIGHT};
-static prog_uchar btn_row_c[] =
+const char PROGMEM btn_row_a[] = {'1', '2', '3', '4', '5', '6'};
+const char PROGMEM btn_row_b[] = {'7', '8', '9', '0', BTN_CAT_LEFT, BTN_CAT_RIGHT};
+const char PROGMEM btn_row_c[] =
 {
 	BTN_POWER,
 	BTN_MEMORY,

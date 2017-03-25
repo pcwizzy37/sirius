@@ -3,7 +3,7 @@
 
 #include <avr/pgmspace.h>
 
-extern prog_uchar font_data[];
+extern const unsigned char font_data[];
 
 #endif /* _FONT_H_ */
 
