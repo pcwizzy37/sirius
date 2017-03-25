@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <avr/interrupt.h>
+#include <avr/io.h>
 
 #include "lcd.h"
 #include "button.h"
-
+void let(char let){};
+void sym(char sym){};
 void draw_bar(uint8_t x, uint8_t y, uint8_t w)
 {
 	uint8_t byte;
@@ -65,6 +67,8 @@ void draw_header(PGM_P str)
 int main()
 {
 	uint8_t x, y;
+char let = ' ';
+char sym = ' ';
 
 	PORTA = 0xff;
 	PORTB = 0x0f;
@@ -86,13 +90,14 @@ int main()
 
 	btn_init();
 
-	lcd_set_backlight(255);
+	lcd_set_backlight(128);
 	lcd_init();
 	lcd_clear();
 
 	sei();
 
-	draw_header(PSTR("Button Test"));
+	draw_header(PSTR("Nathaniel"));
+	
 
 	x = 0;
 	y = 1;
@@ -113,47 +118,200 @@ int main()
 			}
 		}
 		lcd_gotoxy(x * 8, y);
-
+        
 		switch (btn_press)
 		{
+			lcd_reverse_text(0);
 			case BTN_POWER:
-				lcd_putch('P');
-				PORTD ^= 1;
+			draw_header(PSTR("Nathaniel"));
+			x = 0;
+			y = 1;
 				break;
 			case BTN_MEMORY:
-				lcd_putch('M');
+				lcd_putch('*');
+				x++;
 				break;
 			case BTN_BAND:
-				lcd_putch('B');
+				if (sym == ' '){sym = '.';}
+					else{if (sym == '.') {sym = ',';}
+					else{if (sym == ','){sym = '?';}
+						if (sym == '?'){sym = '!';}
+						else{
+						if (sym == '!'){sym = '(';}
+						else{if (sym == '(') {sym = ')';}
+							else{if (sym == ')'){sym = '$';}
+							else{if (sym == '$') {sym = ' ';}}}}}}}
+								lcd_putch(sym);
 				break;
 			case BTN_MENU:
-				lcd_putch('?');
+				lcd_clear();
 				break;
 			case BTN_DISPLAY:
-				lcd_putch('D');
+				draw_bar(0, 0, 132);
+				draw_bar(0, 1, 132);
+				draw_bar(0, 2, 132);
+				draw_bar(0, 3, 132);
+				draw_bar(0, 4, 132);
+				draw_bar(0, 5, 132);
+				draw_bar(0, 6, 132);
+				draw_bar(0, 7, 132);
+				y = 0;
+				x = 0;
 				break;
 			case BTN_SELECT:
-				lcd_putch('*');
+				if (let == ' ') {lcd_putch(sym);}
+					else{lcd_putch(let);}
+				x++;
+				let = '|';
+				lcd_putch(let);
+				let = ' ';
+				sym = ' ';
+				
 				break;
 			case BTN_CAT_LEFT:
-				lcd_putch('<');
-				break;
+			x++;
+			break;
 			case BTN_CAT_RIGHT:
-				lcd_putch('>');
+				if (x == 0)
+				{if (y == 0) {}
+					else {y--; x = 16;}
+					}
+				else {x--;}
 				break;
 			case BTN_ENC_LEFT:
-				lcd_putch('{');
+				if (let == ' '){let = 'A';
+					}
+			else{if (let == 'A'){let = 'B';}
+			else{
+			if (let == 'B'){let = 'C';
+			}
+				else{if (let == 'C'){let = 'D';
+				}
+				else{if (let == 'D'){let = 'E';
+					}else{
+					if (let == 'E'){let = 'F';
+					}
+				else{
+				if (let == 'F'){let = 'G';
+				}
+				else{if (let == 'G'){let = 'H';
+					}else{
+					if (let == 'H'){let = 'I';
+					}
+				else{
+				if (let == 'I'){let = 'J';
+				}
+				else{if (let == 'J'){let = 'K';
+					}else{
+					if (let == 'K'){let = 'L';
+					}
+				else{if (let == 'L'){let = 'M';
+					}else{
+					if (let == 'M'){let = 'N';
+					}else{
+					if (let == 'N'){let = 'O';
+					
+					}else{if (let == 'O'){let = 'P';
+						}else{
+						if (let == 'P'){let = 'Q';
+						}
+						else{
+						if (let == 'Q'){let = 'R';
+						}
+						else{if (let == 'R'){let = 'S';
+							}else{
+							if (let == 'S'){let = 'T';
+							}
+							else{
+							if (let == 'T'){let = 'U';
+							}
+							else{if (let == 'U'){let = 'V';
+								}else{
+								if (let == 'V'){let = 'W';
+								}
+						else{
+				if (let == 'W'){let = 'X';
+				}
+				else{if (let == 'X'){let = 'Y';
+					}else{
+					if (let == 'Y'){let = 'Z';}
+					else{if (let == 'Z'){let = ' ';}
+					}}}}}}}}}}}}}}}}}}}}}}}}}}
+					
+
+			lcd_putch(let);
+
 				break;
 			case BTN_ENC_RIGHT:
-				lcd_putch('}');
+				if (let == ' '){let = 'Z';
+				}
+				else{if (let == 'Z'){let = 'Y';}
+				else{
+					if (let == 'Y'){let = 'X';
+					}
+					else{if (let == 'X'){let = 'W';
+					}
+					else{if (let == 'W'){let = 'V';
+						}else{
+						if (let == 'V'){let = 'U';
+						}
+						else{
+							if (let == 'U'){let = 'T';
+							}
+							else{if (let == 'T'){let = 'S';
+								}else{
+								if (let == 'S'){let = 'R';
+								}
+								else{
+									if (let == 'R'){let = 'Q';
+									}
+									else{if (let == 'Q'){let = 'P';
+										}else{
+										if (let == 'P'){let = 'O';
+										}
+										else{if (let == 'O'){let = 'N';
+											}else{
+											if (let == 'N'){let = 'M';
+												}else{
+												if (let == 'M'){let = 'L';
+													
+													}else{if (let == 'L'){let = 'K';
+													}else{
+													if (let == 'K'){let = 'J';
+													}
+													else{
+														if (let == 'J'){let = 'I';
+														}
+														else{if (let == 'I'){let = 'H';
+															}else{
+															if (let == 'H'){let = 'G';
+															}
+															else{
+																if (let == 'G'){let = 'F';
+																}
+																else{if (let == 'F'){let = 'E';
+																	}else{
+																	if (let == 'E'){let = 'D';
+																	}
+																	else{
+																		if (let == 'D'){let = 'C';
+																		}
+																		else{if (let == 'C'){let = 'B';
+																			}else{
+																			if (let == 'B'){let = 'A';}
+																			else{if (let == 'A'){let = ' ';}
+																		}}}}}}}}}}}}}}}}}}}}}}}}}}
+																		lcd_putch(let);
+
 				break;
 			default:
 				lcd_putch(btn_press);
+				x++;
 				break;
 		}
 		btn_press = BTN_NONE;
 
-		x++;
+	
 	}
 
 #if 0
