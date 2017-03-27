@@ -308,7 +308,7 @@ char sym = ' ';
 
 	btn_init();
 
-	lcd_set_backlight(128);
+	lcd_set_backlight(64);
 	lcd_init();
 	lcd_clear();
 
