@@ -30,7 +30,192 @@ void draw_bar(uint8_t x, uint8_t y, uint8_t w)
 		}
 	} while (--w);
 }
-void draw_thing(uint8_t x, uint8_t y, uint8_t w)
+void draw_heart(uint8_t x, uint8_t y, uint8_t w)
+{
+	uint8_t byte;
+
+	lcd_gotoxy(0, 0);
+	byte = 0x80;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xC0;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x60;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x30;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x18;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x18;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x30;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x60;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xC0;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x80;
+	lcd_write_data(byte);
+byte = 0x80;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xC0;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x60;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x30;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x18;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x18;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x30;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x60;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xC0;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x80;
+	lcd_write_data(byte);
+	lcd_gotoxy(0, 1);
+	byte = 0xFF;
+	lcd_write_data(byte);
+	lcd_gotoxy(29, 1);
+	byte = 0xFF;
+	lcd_write_data(byte);
+	lcd_gotoxy(1, 2);
+	byte = 0x01;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x02;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x04;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x10;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x20;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x40;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x80;
+	lcd_write_data(byte);
+	lcd_gotoxy(21, 2);
+	byte = 0x80;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x40;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x20;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x10;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x04;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x02;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x01;
+	lcd_write_data(byte);
+	lcd_gotoxy(9, 3);
+	byte = 0x01;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x02;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x04;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x10;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x20;
+	lcd_write_data(byte);
+	lcd_gotoxy(15, 3);
+	byte = 0x20;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x10;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x08;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x04;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x02;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x01;
+	lcd_write_data(byte);
+ 	while (--w);
+}
+void draw_star(uint8_t x, uint8_t y, uint8_t w)
 {
 	uint8_t byte;
 
@@ -62,22 +247,7 @@ void draw_thing(uint8_t x, uint8_t y, uint8_t w)
 	byte = 0x84;
 	lcd_write_data(byte);
 
-/*	x &= 7;
-	byte = 0x0f << x;
-	byte |= 0x0f >> (8 - x);
-
-	do
-	{
-		lcd_write_data(byte);
-
-		if (byte & 1)
-		{
-			byte >>= 1;
-			byte |= 0x80;
-		} else {
-			byte >>= 1;
-		}
-	}*/ while (--w);
+while (--w);
 }
 void draw_frame()
 {
@@ -195,7 +365,8 @@ char sym = ' ';
 				lcd_clear();
 				break;
 			case BTN_DISPLAY:
-				draw_thing(0, 0, 132);
+				draw_heart(0, 0, 132);
+				draw_star(64, 0, 16);
 //				draw_bar(0, 1, 132);
 //				draw_bar(0, 2, 132);
 //				draw_bar(0, 3, 132);
