@@ -30,7 +30,55 @@ void draw_bar(uint8_t x, uint8_t y, uint8_t w)
 		}
 	} while (--w);
 }
+void draw_thing(uint8_t x, uint8_t y, uint8_t w)
+{
+	uint8_t byte;
 
+	lcd_gotoxy(x, y);
+	byte = 0x84;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xCC;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xFC;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x7E;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x3F;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x7E;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xFC;
+	lcd_write_data(byte);
+	x++;
+	byte = 0xCC;
+	lcd_write_data(byte);
+	x++;
+	byte = 0x84;
+	lcd_write_data(byte);
+
+/*	x &= 7;
+	byte = 0x0f << x;
+	byte |= 0x0f >> (8 - x);
+
+	do
+	{
+		lcd_write_data(byte);
+
+		if (byte & 1)
+		{
+			byte >>= 1;
+			byte |= 0x80;
+		} else {
+			byte >>= 1;
+		}
+	}*/ while (--w);
+}
 void draw_frame()
 {
 	uint8_t y;
@@ -147,14 +195,14 @@ char sym = ' ';
 				lcd_clear();
 				break;
 			case BTN_DISPLAY:
-				draw_bar(0, 0, 132);
-				draw_bar(0, 1, 132);
-				draw_bar(0, 2, 132);
-				draw_bar(0, 3, 132);
-				draw_bar(0, 4, 132);
-				draw_bar(0, 5, 132);
-				draw_bar(0, 6, 132);
-				draw_bar(0, 7, 132);
+				draw_thing(0, 0, 132);
+//				draw_bar(0, 1, 132);
+//				draw_bar(0, 2, 132);
+//				draw_bar(0, 3, 132);
+//				draw_bar(0, 4, 132);
+//				draw_bar(0, 5, 132);
+//				draw_bar(0, 6, 132);
+//				draw_bar(0, 7, 132);
 				y = 0;
 				x = 0;
 				break;
