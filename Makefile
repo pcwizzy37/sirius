@@ -1,13 +1,15 @@
 TARGET=sirius
 OBJS=main.o lcd.o font.o button.o
 DEVICE=atmega128
+PROGTOOL=avrdude
+ISPFLAGS=-p $(DEVICE) -c usbasp
 
 AS=avr-as
 CC=avr-gcc
 OBJCOPY=avr-objcopy
 CFLAGS=-Os -Wall -mmcu=$(DEVICE) -DF_CPU=7.3728e6
 LDFLAGS=-mmcu=$(DEVICE)
-ISPFLAGS=-dprog=stk500 -dserial=/dev/ttyS1 -dpart=$(DEVICE) 
+
 
 all:		$(TARGET).hex
 
@@ -15,13 +17,13 @@ clean:
 		rm -f $(TARGET).hex $(TARGET).elf $(OBJS) makefont font.c
 
 prog:		$(TARGET).hex
-		uisp $(ISPFLAGS) --erase --upload if=$(TARGET).hex
+		$(PROGTOOL) $(ISPFLAGS) -U flash:w:sirius.hex
 
 prog_config:
-		uisp $(ISPFLAGS) --erase --wr_fuse_h=0xc9 --wr_fuse_l=0xef
+		$(PROGTOOL) $(ISPFLAGS) -U hfuse:w:0xc9:m -U lfuse:w:0xef:m
 
 read_config:
-		uisp $(ISPFLAGS) --rd_fuses
+		$(PROGTOOL) $(ISPFLAGS) -n
 
 # This looks convoluted, making the elf and then the hex.
 # But if ld generates a hex, it will include bss, which will overwrite text
