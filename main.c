@@ -398,63 +398,33 @@ char sym = ' ';
 				else {x--;}
 				break;
 			case BTN_ENC_LEFT:
-				if (let == ' '){let = 'A';
-					}
-			else{if (let == 'A'){let = 'B';}
-			else{
-			if (let == 'B'){let = 'C';
-			}
-				else{if (let == 'C'){let = 'D';
-				}
-				else{if (let == 'D'){let = 'E';
-					}else{
-					if (let == 'E'){let = 'F';
-					}
-				else{
-				if (let == 'F'){let = 'G';
-				}
-				else{if (let == 'G'){let = 'H';
-					}else{
-					if (let == 'H'){let = 'I';
-					}
-				else{
-				if (let == 'I'){let = 'J';
-				}
-				else{if (let == 'J'){let = 'K';
-					}else{
-					if (let == 'K'){let = 'L';
-					}
-				else{if (let == 'L'){let = 'M';
-					}else{
-					if (let == 'M'){let = 'N';
-					}else{
-					if (let == 'N'){let = 'O';
-					
-					}else{if (let == 'O'){let = 'P';
-						}else{
-						if (let == 'P'){let = 'Q';
-						}
-						else{
-						if (let == 'Q'){let = 'R';
-						}
-						else{if (let == 'R'){let = 'S';
-							}else{
-							if (let == 'S'){let = 'T';
-							}
-							else{
-							if (let == 'T'){let = 'U';
-							}
-							else{if (let == 'U'){let = 'V';
-								}else{
-								if (let == 'V'){let = 'W';
-								}
-						else{
-				if (let == 'W'){let = 'X';
-				}
-				else{if (let == 'X'){let = 'Y';
-					}else{
-					if (let == 'Y'){let = 'Z';}
-					else{if (let == 'Z'){let = ' ';}
+				if (let == ' '){let = 'A';}
+				else{if (let == 'A'){let = 'B';}
+				else{if (let == 'B'){let = 'C';}
+				else{if (let == 'C'){let = 'D';}
+				else{if (let == 'D'){let = 'E';}
+				else{if (let == 'E'){let = 'F';}
+				else{if (let == 'F'){let = 'G';}
+				else{if (let == 'G'){let = 'H';}
+				else{if (let == 'H'){let = 'I';}
+				else{if (let == 'I'){let = 'J';}
+				else{if (let == 'J'){let = 'K';}
+				else{if (let == 'K'){let = 'L';}
+				else{if (let == 'L'){let = 'M';}
+				else{if (let == 'M'){let = 'N';}
+				else{if (let == 'N'){let = 'O';}
+				else{if (let == 'O'){let = 'P';}
+				else{if (let == 'P'){let = 'Q';}
+				else{if (let == 'Q'){let = 'R';}
+				else{if (let == 'R'){let = 'S';}
+				else{if (let == 'S'){let = 'T';}
+				else{if (let == 'T'){let = 'U';}
+				else{if (let == 'U'){let = 'V';}
+				else{if (let == 'V'){let = 'W';}
+				else{if (let == 'W'){let = 'X';}
+				else{if (let == 'X'){let = 'Y';}
+				else{if (let == 'Y'){let = 'Z';}
+				else{if (let == 'Z'){let = ' ';}
 					}}}}}}}}}}}}}}}}}}}}}}}}}}
 					
 
@@ -462,65 +432,35 @@ char sym = ' ';
 
 				break;
 			case BTN_ENC_RIGHT:
-				if (let == ' '){let = 'Z';
-				}
+				if (let == ' '){let = 'Z';}
 				else{if (let == 'Z'){let = 'Y';}
-				else{
-					if (let == 'Y'){let = 'X';
-					}
-					else{if (let == 'X'){let = 'W';
-					}
-					else{if (let == 'W'){let = 'V';
-						}else{
-						if (let == 'V'){let = 'U';
-						}
-						else{
-							if (let == 'U'){let = 'T';
-							}
-							else{if (let == 'T'){let = 'S';
-								}else{
-								if (let == 'S'){let = 'R';
-								}
-								else{
-									if (let == 'R'){let = 'Q';
-									}
-									else{if (let == 'Q'){let = 'P';
-										}else{
-										if (let == 'P'){let = 'O';
-										}
-										else{if (let == 'O'){let = 'N';
-											}else{
-											if (let == 'N'){let = 'M';
-												}else{
-												if (let == 'M'){let = 'L';
-													
-													}else{if (let == 'L'){let = 'K';
-													}else{
-													if (let == 'K'){let = 'J';
-													}
-													else{
-														if (let == 'J'){let = 'I';
-														}
-														else{if (let == 'I'){let = 'H';
-															}else{
-															if (let == 'H'){let = 'G';
-															}
-															else{
-																if (let == 'G'){let = 'F';
-																}
-																else{if (let == 'F'){let = 'E';
-																	}else{
-																	if (let == 'E'){let = 'D';
-																	}
-																	else{
-																		if (let == 'D'){let = 'C';
-																		}
-																		else{if (let == 'C'){let = 'B';
-																			}else{
-																			if (let == 'B'){let = 'A';}
-																			else{if (let == 'A'){let = ' ';}
-																		}}}}}}}}}}}}}}}}}}}}}}}}}}
-																		lcd_putch(let);
+				else{if (let == 'Y'){let = 'X';}
+				else{if (let == 'X'){let = 'W';}
+				else{if (let == 'W'){let = 'V';}
+				else{if (let == 'V'){let = 'U';}
+				else{if (let == 'U'){let = 'T';}
+				else{if (let == 'T'){let = 'S';}
+				else{if (let == 'S'){let = 'R';}
+				else{if (let == 'R'){let = 'Q';}
+				else{if (let == 'Q'){let = 'P';}
+				else{if (let == 'P'){let = 'O';}
+				else{if (let == 'O'){let = 'N';}
+				else{if (let == 'N'){let = 'M';}
+				else{if (let == 'M'){let = 'L';}
+				else{if (let == 'L'){let = 'K';}
+				else{if (let == 'K'){let = 'J';}
+				else{if (let == 'J'){let = 'I';}
+				else{if (let == 'I'){let = 'H';}
+				else{if (let == 'H'){let = 'G';}
+				else{if (let == 'G'){let = 'F';}
+				else{if (let == 'F'){let = 'E';}
+				else{if (let == 'E'){let = 'D';}
+				else{if (let == 'D'){let = 'C';}
+				else{if (let == 'C'){let = 'B';}
+				else{if (let == 'B'){let = 'A';}
+				else{if (let == 'A'){let = ' ';}
+				}}}}}}}}}}}}}}}}}}}}}}}}}}
+				lcd_putch(let);
 
 				break;
 			default:
