@@ -10,7 +10,7 @@
 void let(char let){};
 void sym(char sym){};
 void inmenu(int inmenu){};
-void menuopt(char menuopt){};
+void menuopt(int menuopt){};
 void drawnimage(int drawnimage){};
 
 
@@ -105,7 +105,6 @@ int drawnimage = 0;
 				lcd_putch(sym);
 				break;
 			case BTN_MENU:
-			//	lcd_clear();
 				menu();
 				break;
 			case BTN_DISPLAY:
