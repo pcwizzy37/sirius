@@ -7,18 +7,36 @@
 #include "heart.h"
 #include "star.h"
 #include "mainaux.h"
-void drawnimage(int drawnimage){};
 void let(char let){};
 void sym(char sym){};
+void inmenu(int inmenu){};
+void menuopt(char menuopt){};
+void drawnimage(int drawnimage){};
 
 
+
+void menu()
+	{
+	lcd_reverse_text(1);
+	center_text(PSTR("  Menu option 1  "), 1);
+	lcd_reverse_text(0);
+	center_text(PSTR("  Menu option 2  "), 2);
+	center_text(PSTR("  Menu option 3  "), 3);
+	center_text(PSTR("  Menu option 4  "), 4);
+	center_text(PSTR("  Menu option 5  "), 5);
+	center_text(PSTR("  Menu option 6  "), 6);
+	}
+void beep(uint8_t level)
+{
+	OCR1AH = 0;
+	OCR1AL = level;
+}
 int main()
 {
 	uint8_t x, y;
 char let = ' ';
 char sym = ' ';
 int drawnimage = 0;
-
 	PORTA = 0xff;
 	PORTB = 0x0f;
 	PORTC = 0x00;
@@ -82,18 +100,19 @@ int drawnimage = 0;
 				break;
 			case BTN_BAND:
 				if (sym == ' '){sym = '.';}
-					else{if (sym == '.') {sym = ',';}
-					else{if (sym == ','){sym = '?';}
-						if (sym == '?'){sym = '!';}
-						else{
-						if (sym == '!'){sym = '(';}
-						else{if (sym == '(') {sym = ')';}
-							else{if (sym == ')'){sym = '$';}
-							else{if (sym == '$') {sym = ' ';}}}}}}}
-								lcd_putch(sym);
+				else{if (sym == '.') {sym = ',';}
+				else{if (sym == ','){sym = '?';}
+				else{if (sym == '?'){sym = '!';}
+				else{if (sym == '!'){sym = '(';}
+				else{if (sym == '(') {sym = ')';}
+				else{if (sym == ')'){sym = '$';}
+				else{if (sym == '$') {sym = ' ';}}}}}}}}
+				lcd_putch(sym);
 				break;
 			case BTN_MENU:
-				lcd_clear();
+			//	lcd_clear();
+				menu();
+				beep(64);
 				break;
 			case BTN_DISPLAY:
 				if (drawnimage == 0)
@@ -193,7 +212,7 @@ int drawnimage = 0;
 				else{if (let == 'B'){let = 'A';}
 				else{if (let == 'A'){let = ' ';}
 				}}}}}}}}}}}}}}}}}}}}}}}}}}
-				lcd_putch(let);
+																		lcd_putch(let);
 
 				break;
 			default:
