@@ -26,11 +26,6 @@ void menu()
 	center_text(PSTR("  Menu option 5  "), 5);
 	center_text(PSTR("  Menu option 6  "), 6);
 	}
-void beep(uint8_t level)
-{
-	OCR1AH = 0;
-	OCR1AL = level;
-}
 int main()
 {
 	uint8_t x, y;
@@ -112,7 +107,6 @@ int drawnimage = 0;
 			case BTN_MENU:
 			//	lcd_clear();
 				menu();
-				beep(64);
 				break;
 			case BTN_DISPLAY:
 				if (drawnimage == 0)
