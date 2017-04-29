@@ -7,7 +7,7 @@
 #include "heart.h"
 #include "star.h"
 #include "mainaux.h"
-
+void drawnimage(int drawnimage){};
 void let(char let){};
 void sym(char sym){};
 
@@ -17,6 +17,7 @@ int main()
 	uint8_t x, y;
 char let = ' ';
 char sym = ' ';
+int drawnimage = 0;
 
 	PORTA = 0xff;
 	PORTB = 0x0f;
@@ -95,15 +96,17 @@ char sym = ' ';
 				lcd_clear();
 				break;
 			case BTN_DISPLAY:
-				draw_heart(0, 0, 132);
-				draw_star(64, 0, 16);
-//				draw_bar(0, 1, 132);
-//				draw_bar(0, 2, 132);
-//				draw_bar(0, 3, 132);
-//				draw_bar(0, 4, 132);
-//				draw_bar(0, 5, 132);
-//				draw_bar(0, 6, 132);
-//				draw_bar(0, 7, 132);
+				if (drawnimage == 0)
+				{
+				     draw_heart(0, 0, 132);
+				     draw_star(64, 0, 16);
+				     drawnimage = 1;
+				}
+				else{ if (drawnimage == 1)
+				{
+				     lcd_clear();
+				     drawnimage = 0;
+				}}
 				y = 0;
 				x = 0;
 				break;
