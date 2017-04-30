@@ -9,8 +9,8 @@
 #include "mainaux.h"
 void let(char let){};
 void sym(char sym){};
-void inmenu(int inmenu){};
-void menuopt(int menuopt){};
+void inmenu(char inmenu){};
+void menuopt(char menuopt){};
 void drawnimage(int drawnimage){};
 
 
@@ -32,6 +32,8 @@ int main()
 char let = ' ';
 char sym = ' ';
 int drawnimage = 0;
+char inmenu = 0;
+char menuopt = 1;
 	PORTA = 0xff;
 	PORTB = 0x0f;
 	PORTC = 0x00;
@@ -105,7 +107,16 @@ int drawnimage = 0;
 				lcd_putch(sym);
 				break;
 			case BTN_MENU:
+				if (inmenu == 0)
+				{
 				menu();
+				inmenu = 1;
+				}
+				else { if (inmenu == 1)
+				{
+				lcd_clear();
+				inmenu = 0;
+				}
 				break;
 			case BTN_DISPLAY:
 				if (drawnimage == 0)
@@ -143,6 +154,61 @@ int drawnimage = 0;
 				else {x--;}
 				break;
 			case BTN_ENC_LEFT:
+				if (inmenu == 1)
+				{
+				if (menuopt == 1)
+				{
+				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 1  "), 1);
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 2  "), 2);
+				lcd_reverse_text(0);
+				menuopt = 2;
+
+				}
+				if (menuopt == 2)
+				{
+				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 2  "), 2);
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 3  "), 3);
+				lcd_reverse_text(0);
+				menuopt = 3;
+				}
+				break;
+				if (menuopt == 3)
+				{
+				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 3  "), 3);
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 4  "), 4);
+				lcd_reverse_text(0);
+				menuopt = 4;
+				}
+				break;
+				if (menuopt == 4)
+				{
+				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 4  "), 4);
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 5  "), 5);
+				lcd_reverse_text(0);
+				menuopt = 5;
+				}
+				break;
+				if (menuopt == 5)
+				{
+				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 5  "), 5);
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 6  "), 6);
+				lcd_reverse_text(0);
+				menuopt = 6;
+				break;
+				}
+				}
+				else{if (inmenu == 0) 
+				{
 				if (let == ' '){let = 'A';}
 				else{if (let == 'A'){let = 'B';}
 				else{if (let == 'B'){let = 'C';}
@@ -170,7 +236,7 @@ int drawnimage = 0;
 				else{if (let == 'X'){let = 'Y';}
 				else{if (let == 'Y'){let = 'Z';}
 				else{if (let == 'Z'){let = ' ';}
-					}}}}}}}}}}}}}}}}}}}}}}}}}}
+					}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 					
 
 			lcd_putch(let);
