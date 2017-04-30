@@ -135,14 +135,18 @@ char menuopt = 1;
 				x = 0;
 				break;
 			case BTN_SELECT:
-				if (let == ' ') {lcd_putch(sym);}
+				if (inmenu = 1) 
+				{
+
+				}
+				else{if (let == ' ') {lcd_putch(sym);}
 					else{lcd_putch(let);}
 				x++;
 				let = '|';
 				lcd_putch(let);
 				let = ' ';
 				sym = ' ';
-				
+				}
 				break;
 			case BTN_CAT_LEFT:
 			x++;
