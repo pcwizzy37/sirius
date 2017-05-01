@@ -203,6 +203,9 @@ char menuopt = 1;
 				}
 				else{if (menuopt == 6)
 				{
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 6  "), 6);
+				lcd_reverse_text(0);
 				menuopt = 6;
 				}}}}}}
 				}
@@ -286,6 +289,9 @@ char menuopt = 1;
 				}
 				else{if (menuopt == 1)
 				{
+				lcd_reverse_text(1);
+				center_text(PSTR("  Menu option 1  "), 1);
+				lcd_reverse_text(0);
 				menuopt = 1;
 				}}}}}}
 				}
