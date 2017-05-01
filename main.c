@@ -135,7 +135,7 @@ char menuopt = 1;
 				x = 0;
 				break;
 			case BTN_SELECT:
-				if (inmenu = 1) 
+				if (inmenu == 1) 
 				{
 
 				}
@@ -163,50 +163,48 @@ char menuopt = 1;
 				{
 				if (menuopt == 1)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 1  "), 1);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 2  "), 2);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 1  "), 1);
 				menuopt = 2;
 				}
 				else{if (menuopt == 2)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 2  "), 2);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 3  "), 3);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 2  "), 2);
 				menuopt = 3;
 				}
 				else{if (menuopt == 3)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 3  "), 3);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 4  "), 4);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 3  "), 3);
 				menuopt = 4;
 				}
 				else{if (menuopt == 4)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 4  "), 4);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 5  "), 5);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 4  "), 4);
 				menuopt = 5;
 				}
 				else{if (menuopt == 5)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 5  "), 5);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 6  "), 6);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 5  "), 5);
 				menuopt = 6;
-				break;
-				}}}}}
+				}
+				else{if (menuopt == 6)
+				{
+				menuopt = 6;
+				}}}}}}
 				}
 				else{if (inmenu == 0) 
 				{
@@ -248,50 +246,48 @@ char menuopt = 1;
 				{
 				if (menuopt == 6)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 6  "), 6);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 5  "), 5);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 6  "), 6);
 				menuopt = 5;
 				}
 				else{if (menuopt == 5)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 5  "), 5);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 4  "), 4);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 5  "), 5);
 				menuopt = 4;
 				}
 				else{if (menuopt == 4)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 4  "), 4);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 3  "), 3);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 4  "), 4);
 				menuopt = 3;
 				}
 				else{if (menuopt == 3)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 3  "), 3);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 2  "), 2);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 3  "), 3);
 				menuopt = 2;
 				}
 				else{if (menuopt == 2)
 				{
-				lcd_reverse_text(0);
-				center_text(PSTR("  Menu option 2  "), 2);
 				lcd_reverse_text(1);
 				center_text(PSTR("  Menu option 1  "), 1);
 				lcd_reverse_text(0);
+				center_text(PSTR("  Menu option 2  "), 2);
 				menuopt = 1;
-				break;
-				}}}}}
+				}
+				else{if (menuopt == 1)
+				{
+				menuopt = 1;
+				}}}}}}
 				}
 				else{if (let == ' '){let = 'Z';}
 				else{if (let == 'Z'){let = 'Y';}
