@@ -17,6 +17,7 @@ void drawnimage(int drawnimage){};
 
 void menu()
 	{
+	draw_header(PSTR("Menu"));
 	lcd_reverse_text(1);
 	center_text(PSTR("  Menu option 1  "), 1);
 	lcd_reverse_text(0);
