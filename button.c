@@ -76,7 +76,7 @@ ISR(TIMER0_OVF_vect)
 	 * Drive the current column low and all other columns high.
 	 */
 	PORTA = 0xff ^ (1 << scan_column);
-
+	/* I noticed that Encoder left and right are reversed physically. */
 	/* Check the encoder */
 	enc_state >>= 2;
 	enc_state |= PINA & 0xc0;
