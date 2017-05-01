@@ -87,9 +87,19 @@ char menuopt = 1;
 		{
 			lcd_reverse_text(0);
 			case BTN_POWER:
+			if (inmenu == 1) 
+				{
+				inmenu = 0;
+				lcd_clear();
+				draw_header(PSTR("Nathaniel"));
+				x = 0;
+				y = 1;
+				}
+				else{
+				lcd_clear(); 
 			draw_header(PSTR("Nathaniel"));
 			x = 0;
-			y = 1;
+			y = 1; }
 				break;
 			case BTN_MEMORY:
 				lcd_putch('*');
@@ -122,9 +132,18 @@ char menuopt = 1;
 			case BTN_DISPLAY:
 				if (drawnimage == 0)
 				{
+				if (inmenu == 1) 
+				{
+				draw_heart(0, 0, 132);
+				draw_star(64, 0, 16);
+				inmenu = 0;
+				drawnimage = 1;
+				}
+				else{
 				     draw_heart(0, 0, 132);
 				     draw_star(64, 0, 16);
 				     drawnimage = 1;
+				}
 				}
 				else{ if (drawnimage == 1)
 				{
