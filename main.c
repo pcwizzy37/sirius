@@ -38,7 +38,7 @@ char menuopt = 1;
 	PORTA = 0xff;
 	PORTB = 0x0f;
 	PORTC = 0x00;
-	PORTD = 0x30;
+	PORTD = 0x31;
 	PORTE = 0x40;
 	PORTF = 0xff;
 
@@ -54,7 +54,6 @@ char menuopt = 1;
 	TCCR1B = 0x0a;
 
 	btn_init();
-
 	lcd_set_backlight(64);
 	lcd_init();
 	lcd_clear();
